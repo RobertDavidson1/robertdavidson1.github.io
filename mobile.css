@@ -1,96 +1,27 @@
-/* Mobile-First CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root { --section-h: 300vh; } /* Increase for longer hold (e.g., 400vh) */
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; background:#000; color:#ddd; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+
+.section { height: var(--section-h); position: relative; }
+
+.frame {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #000;
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    min-height: 100vh;
+.frame img {
+  display:block;
+  width: 100vw;   /* fit width on mobile */
+  height: auto;   /* tall image determines rendered height */
+  transform: translateY(0);
+  will-change: transform;
+  image-rendering: auto;
 }
 
-header {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-h1 {
-    font-size: 1.5rem;
-}
-
-#menu-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-main {
-    padding: 20px;
-}
-
-.hero {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.hero h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    opacity: 0.9;
-}
-
-#cta-btn {
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 25px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.card {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 20px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-}
-
-.card h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    background: rgba(0, 0, 0, 0.2);
-}
-
-/* Touch-friendly buttons */
-button {
-    min-height: 44px;
-    min-width: 44px;
-    touch-action: manipulation;
-}
+.spacer { height: 80vh; display:grid; place-items:center; opacity:.7 }
