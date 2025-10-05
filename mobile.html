@@ -1,46 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile App</title>
-    <link rel="stylesheet" href="mobile.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scrollable Tall Image</title>
+  <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
-    <header>
-        <h1>📱 Mobile Site</h1>
-        <nav>
-            <button id="menu-btn">☰</button>
-        </nav>
-    </header>
-    
-    <main>
-        <section class="hero">
-            <h2>Mobile First</h2>
-            <p>Optimized for touch and small screens</p>
-            <button id="cta-btn">Tap Here</button>
-        </section>
-        
-        <section class="content">
-            <div class="card">
-                <h3>Feature 1</h3>
-                <p>Touch-friendly interface</p>
-            </div>
-            <div class="card">
-                <h3>Feature 2</h3>
-                <p>Fast loading</p>
-            </div>
-            <div class="card">
-                <h3>Feature 3</h3>
-                <p>Simple navigation</p>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <p>Mobile Version</p>
-    </footer>
-    
-    <script src="mobile.js"></script>
+
+ 
+
+  <!-- One pinned section controlling a single tall image -->
+  <section class="section" id="scroll-scene" data-freeze-start="0.20" data-freeze-end="0.80">
+    <div class="frame">
+      <!-- Replace tall.png with your actual filename. PNG is fine. -->
+      <img id="tall" src="images/tall.png" alt="Tall render (1080x6480)" />
+    </div>
+  </section>
+
+
+
+  <script src="script.js"></script>
 </body>
 </html>
