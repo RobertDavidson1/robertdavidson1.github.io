@@ -3,84 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Loading...</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: #111112;
-            color: white;
-        }
-        .loader {
-            text-align: center;
-        }
-        .spinner {
-            border: 3px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top: 3px solid white;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+    <title>Portfolio</title>
 </head>
 <body>
-    <div class="loader">
-        <h1>Portfolio</h1>
-        <div class="spinner"></div>
-        <p>Detecting device type...</p>
-    </div>
-    
     <script>
-        // Device detection and redirect logic
-        function detectDeviceAndRedirect() {
-            const screenWidth = window.screen.width;
-            const userAgent = navigator.userAgent.toLowerCase();
-            
-            // Check if it's a mobile device
-            const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
-            const isSmallScreen = screenWidth <= 768;
-            
-            // Redirect based on device type and screen size
-            if (isMobile || isSmallScreen) {
-                // Redirect to mobile version
-                window.location.href = 'mobile.html';
-            } else {
-                // Redirect to desktop version
-                window.location.href = 'desktop.html';
-            }
-        }
-        
-        // Redirect immediately when page loads
-        detectDeviceAndRedirect();
-        
-        // Also redirect on window resize (for responsive testing)
-        let resizeTimeout;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(function() {
-                const currentWidth = window.innerWidth;
-                const currentPage = window.location.pathname.split('/').pop();
-                
-                // Only redirect if we're on the main index page
-                if (currentPage === 'index.html' || currentPage === '') {
-                    if (currentWidth <= 768 && !currentPage.includes('mobile')) {
-                        window.location.href = 'mobile.html';
-                    } else if (currentWidth > 768 && !currentPage.includes('desktop')) {
-                        window.location.href = 'desktop.html';
-                    }
-                }
-            }, 250);
-        });
+        const isMobile = window.innerWidth <= 768 || /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent);
+        window.location.href = isMobile ? 'mobile.html' : 'desktop.html';
     </script>
 </body>
 </html>
