@@ -1,55 +1,394 @@
-/* Mobile styles */
-
-/* Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
 }
 
 html, body {
     height: 100%;
-    min-height: 100vh;          /* fallback for old browsers */
-    min-height: 100svh;         /* small viewport (iOS URL bar shown) */
-    min-height: 100dvh;         /* dynamic viewport (modern iOS) */
-    /* Extra fallback for very old iOS Safari: */
-    min-height: -webkit-fill-available;
-    background: #060607;
-  }
-  
-  /* Sections: make each exactly one visible screen tall, no overflow sliver */
-  
-
-body {
-    overflow-y: auto;
     overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #000000;
     scroll-behavior: smooth;
 }
 
-/* Scroll snapping */
-html {
-    scroll-snap-type: y proximity;
+body {
+    scroll-snap-type: y mandatory;
 }
 
-/* Container – no fixed height needed */
-.image-container {
+.background {
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    scroll-snap-align: start;
+    position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 20px 50px 20px;
 }
 
-.image-section {
-    height: 100vh;              /* fallback */
-    height: 100svh;             /* iOS 15+ */
-    height: 100dvh;             /* iOS 16+ */
-    width: 100%;                /* avoid 100vw overflow on iOS */
-    background-position: center;
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.image {
+    width: 100%;
+    height: 300px;
+    background-image: url('images/1.png');
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-  }
-
-.image-section > * {
-padding-top: env(safe-area-inset-top);
-padding-bottom: env(safe-area-inset-bottom);
-padding-left: env(safe-area-inset-left);
-padding-right: env(safe-area-inset-right);
+    border-radius: 20px;
 }
+
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.name {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: left;
+}
+
+
+.page-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 50px;
+    height: 100px;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 35px;
+    backdrop-filter: blur(10px);
+    padding: 10px 0;
+}
+
+.indicator-dot {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(0.8);
+}
+
+.indicator-dot.active {
+    transform: scale(1.2);
+}
+
+.math-symbol {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 300;
+    line-height: 1;
+}
+
+.indicator-dot.active .math-symbol {
+    color: rgba(255, 255, 255, 1);
+}
+
+.contact-circle {
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.1;
+    padding: 10px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    will-change: transform, width, border-radius;
+}
+
+.contact-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.2);
+}
+
+.contact-circle:active {
+    transform: scale(0.95);
+}
+
+.description {
+    color: white;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: left;
+    max-width: 280px;
+    margin-bottom: 20px;
+    margin-top: -20px;
+}
+
+.highlight {
+    opacity: 1 !important;
+    font-weight: bold;
+}
+
+.scroll-hint {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.scroll-hint i {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.5rem;
+    animation: bounce 4s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.scrollable-section {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000000;
+    padding: 40px 20px;
+    scroll-snap-align: start;
+}
+
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    color: white;
+}
+
+.content h1 {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.content p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Contact overlay animations */
+.contact-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                visibility 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(8px);
+    will-change: opacity, visibility;
+}
+
+.contact-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Social capsule animations */
+.social-capsule {
+    position: fixed;
+    background-color: #000000;
+    border-radius: 50%;
+    z-index: 1001;
+    opacity: 0;
+    transform: scale(0.3) translateY(20px);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    bottom: var(--bottom, 20px);
+    right: var(--right, 20px);
+    width: var(--size, 40px);
+    height: var(--size, 40px);
+    will-change: transform, opacity;
+}
+
+.social-capsule.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.social-capsule:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.social-capsule:active {
+    transform: scale(0.95) translateY(0);
+}
+
+.social-capsule i {
+    color: white;
+    font-size: 18px;
+    transition: transform 0.1s ease;
+}
+
+.social-capsule:hover i {
+    transform: scale(1.1);
+}
+
+/* Contact button expanded state */
+.contact-circle.expanded {
+    width: 35vw;
+    border-radius: 25px;
+    padding: 0;
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15);
+}
+
+.contact-circle.expanded i {
+    opacity: 0;
+    transform: rotate(45deg);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* Subtle pulse animation for contact button */
+@keyframes subtle-pulse {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(255, 255, 255, 0.15);
+    }
+}
+
+.contact-circle:not(.expanded) {
+    animation: subtle-pulse 2s ease-in-out infinite;
+}
+
+.contact-circle:not(.expanded):hover {
+    animation: none;
+}
+
+/* Background Effect Button */
+.background-effect-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.1;
+    padding: 10px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    z-index: 1000;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+    will-change: transform, background-color;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.background-effect-button.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.background-effect-button:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.1);
+}
+
+.background-effect-button:active {
+    transform: scale(0.95);
+}
+
+.background-effect-button.active {
+    background-color: rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.background-effect-button.active i {
+    transform: rotate(45deg);
+    transition: transform 0.2s ease, color 0.2s ease;
+    color: #ff4444;
+}
+
+.background-effect-button.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    background-color: rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.background-effect-button.visible i {
+    color: #ff4444;
+}
+
+.copyright {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    font-weight: 300;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.copyright.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
