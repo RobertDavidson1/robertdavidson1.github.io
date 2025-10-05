@@ -1,4 +1,6 @@
 /* Mobile styles */
+
+/* Base */
 * {
     margin: 0;
     padding: 0;
@@ -6,57 +8,33 @@
 }
 
 html, body {
-    height: 100%;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    scroll-snap-type: y mandatory;
-    background-color: #060607;
+    min-height: 100dvh;
+    background: #060607;
 }
 
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Scroll snapping */
+html {
+    scroll-snap-type: y mandatory;
+}
+
+/* Container – no fixed height needed */
 .image-container {
-    height: 300vh; /* 3 images = 3 times viewport height */
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease-out;
 }
 
+/* Each section = exactly one screen tall, full-bleed background */
 .image-section {
-    height: 100vh;
+    height: 100dvh;           /* key change */
     width: 100vw;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
-    scroll-snap-align: start;
-    flex-shrink: 0;
-}
-
-/* Smooth scrolling behavior */
-.image-container {
-    scroll-behavior: smooth;
-}
-
-/* Ensure images fill the entire viewport */
-body {
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-/* Enhanced snap scrolling */
-html {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-}
-
-/* Snap points for each image */
-.image-section:nth-child(1) {
-    scroll-snap-align: start;
-}
-
-.image-section:nth-child(2) {
-    scroll-snap-align: center;
-}
-
-.image-section:nth-child(3) {
-    scroll-snap-align: end;
+    scroll-snap-align: start; /* same for all */
 }
