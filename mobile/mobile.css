@@ -10,9 +10,7 @@ html, body {
     overflow: hidden;
     font-family: Arial, sans-serif;
     scroll-snap-type: y mandatory;
-    /* Fix for iPhone safe areas */
-    height: 100vh;
-    height: -webkit-fill-available;
+    background-color: #060607;
 }
 
 .image-container {
@@ -20,14 +18,10 @@ html, body {
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease-out;
-    /* Ensure full coverage */
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
 }
 
 .image-section {
     height: 100vh;
-    height: -webkit-fill-available;
     width: 100vw;
     background-size: cover;
     background-position: center;
@@ -35,11 +29,6 @@ html, body {
     background-attachment: scroll;
     scroll-snap-align: start;
     flex-shrink: 0;
-    /* Fix for iPhone safe areas */
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
 }
 
 /* Smooth scrolling behavior */
@@ -70,17 +59,4 @@ html {
 
 .image-section:nth-child(3) {
     scroll-snap-align: end;
-}
-
-/* iOS specific fixes */
-@supports (-webkit-touch-callout: none) {
-    .image-section {
-        height: 100vh;
-        height: -webkit-fill-available;
-    }
-    
-    .image-container {
-        min-height: 100vh;
-        min-height: -webkit-fill-available;
-    }
 }
