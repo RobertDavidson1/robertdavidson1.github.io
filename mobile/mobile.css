@@ -15,12 +15,6 @@ html, body {
 body {
     overflow-y: auto;
     overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-
-/* Scroll snapping */
-html {
-    scroll-snap-type: y proximity;
 }
 
 /* Container – no fixed height needed */
@@ -31,10 +25,9 @@ html {
 
 /* Each section = exactly one screen tall, full-bleed background */
 .image-section {
-    height: 100dvh;           /* key change */
+    height: 100dvh;
     width: 100vw;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    scroll-snap-align: start; /* same for all */
 }
