@@ -8,9 +8,17 @@
 }
 
 html, body {
-    min-height: 100dvh;
+    height: 100%;
+    min-height: 100vh;          /* fallback for old browsers */
+    min-height: 100svh;         /* small viewport (iOS URL bar shown) */
+    min-height: 100dvh;         /* dynamic viewport (modern iOS) */
+    /* Extra fallback for very old iOS Safari: */
+    min-height: -webkit-fill-available;
     background: #060607;
-}
+  }
+  
+  /* Sections: make each exactly one visible screen tall, no overflow sliver */
+  
 
 body {
     overflow-y: auto;
@@ -29,12 +37,19 @@ html {
     flex-direction: column;
 }
 
-/* Each section = exactly one screen tall, full-bleed background */
 .image-section {
-    height: 100dvh;           /* key change */
-    width: 100vw;
-    background-size: cover;
+    height: 100vh;              /* fallback */
+    height: 100svh;             /* iOS 15+ */
+    height: 100dvh;             /* iOS 16+ */
+    width: 100%;                /* avoid 100vw overflow on iOS */
     background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
-    scroll-snap-align: start; /* same for all */
+  }
+
+.image-section > * {
+padding-top: env(safe-area-inset-top);
+padding-bottom: env(safe-area-inset-bottom);
+padding-left: env(safe-area-inset-left);
+padding-right: env(safe-area-inset-right);
 }
