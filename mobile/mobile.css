@@ -179,8 +179,8 @@ body {
     width: 100%;
     min-height: 100vh;
     background-color: #000000;
-    padding: 40px 20px;
     scroll-snap-align: start;
+    padding: 40px 20px;
 }
 
 .content {
@@ -201,6 +201,17 @@ body {
 .content p {
     font-size: 1rem;
     line-height: 1.6;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: -2rem;
+    margin-top: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /* Contact overlay animations */
@@ -391,4 +402,6 @@ body {
     opacity: 1;
     visibility: visible;
 }
+
+
 

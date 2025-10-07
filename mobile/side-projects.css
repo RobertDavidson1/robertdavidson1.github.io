@@ -1,0 +1,14 @@
+/* Side Projects Section Background */
+.scrollable-section:nth-child(2) {
+    background: url('./images/2.png') no-repeat center center !important;
+    background-size: 100% 100% !important;
+    min-height: 100vh !important;
+    position: relative !important;
+}
+
+/* Ensure content is visible over background */
+.scrollable-section:nth-child(2) .content {
+    position: relative;
+    z-index: 1;
+}
+
