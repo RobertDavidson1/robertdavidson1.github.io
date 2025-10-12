@@ -150,31 +150,6 @@ body {
     font-weight: bold;
 }
 
-.scroll-hint {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.scroll-hint i {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 1.5rem;
-    animation: bounce 4s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
-}
-
 .scrollable-section {
     width: 100%;
     min-height: 100vh;
@@ -201,17 +176,6 @@ body {
 .content p {
     font-size: 1rem;
     line-height: 1.6;
-}
-
-.subtitle {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-bottom: -2rem;
-    margin-top: 2rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /* Contact overlay animations */
@@ -369,19 +333,6 @@ body {
 .background-effect-button.active i {
     transform: rotate(45deg);
     transition: transform 0.2s ease, color 0.2s ease;
-    color: #ff4444;
-}
-
-.background-effect-button.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    background-color: rgba(255, 0, 0, 0.2);
-    box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
-    border: 1px solid rgba(255, 0, 0, 0.3);
-}
-
-.background-effect-button.visible i {
     color: #ff4444;
 }
 

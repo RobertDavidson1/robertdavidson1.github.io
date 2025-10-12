@@ -4,8 +4,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const magicButton = document.querySelector('.background-effect-button');
     const sections = document.querySelectorAll('.background, .scrollable-section');
     const dots = document.querySelectorAll('.indicator-dot');
-    const copyright = document.querySelector('.copyright');
-    const scrollHint = document.querySelector('.scroll-hint');
+    const copyright
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    = document.querySelector('.copyright');
     
     if (typeof katex !== 'undefined') {
         const mathSymbols = document.querySelectorAll('.math-symbol');
@@ -59,10 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!ticking) {
             requestAnimationFrame(updateParallax);
             ticking = true;
-        }
-        
-        if (scrollHint && scrollHint.style.visibility !== 'hidden') {
-            scrollHint.style.visibility = 'hidden';
         }
     }
     
